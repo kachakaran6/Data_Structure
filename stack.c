@@ -4,7 +4,7 @@
 
 #define SIZE 4
 
-int top = -1, inp_array[SIZE];
+int top = -1, int_array[SIZE];
 void push();
 void pop();
 void show();
@@ -53,7 +53,7 @@ void push()
         printf("\nEnter the element to be added onto the stack: ");
         scanf("%d", &x);
         top = top + 1;
-        inp_array[top] = x;
+        int_array[top] = x;
     }
 }
 
@@ -65,7 +65,7 @@ void pop()
     }
     else
     {
-        printf("\nPopped element: %d", inp_array[top]);
+        printf("\nPopped element: %d", int_array[top]);
         top = top - 1;
     }
 }
@@ -80,6 +80,6 @@ void show()
     {
         printf("\nElements present in the stack: \n");
         for (int i = top; i >= 0; --i)
-            printf("%d\n", inp_array[i]);
+            printf("%d\n", int_array[i]);
     }
 }
