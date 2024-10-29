@@ -1,87 +1,105 @@
-#include<stdio.h>
 #include<conio.h>
+#include<stdio.h>
 #include<process.h>
 #include<stdlib.h>
 #define MAX 10
-char arr[MAX];
-int front =-1, rear =-1;
+int arr[MAX];
+int front = -1, rear = -1;
 
-void addqueue(char item){
-    if(rear == MAX-1){
-        printf("Queue is Full\n");
+void addqueue(int item)
+{
+    if (rear == MAX - 1)
+    {
+        printf("Queue is full\n");
         return;
     }
-    arr[++rear]=item;
+    arr[++rear] = item;
 
-    if(front == -1)
-    front = 0;
+    if (front == -1)
+        front = 0;
 }
-char dequeue(){
-    char data;
+int dequeue()
+{
+    int data;
 
-    if(front == -1){
+    if (front == -1) 
+    {
         printf("Queue is empty\n");
         return 0;
     }
     data = arr[front];
     arr[front] = 0;
-    if(front == rear)
-    front = rear =-1;
-    else{
+    if (front == rear)
+        front = rear = -1;
+    else
+    {
         front++;
     }
     return data;
 }
 
-void display(){
+void display()
+{
     printf("\n\t\t\tinformation in Queue\n\n");
-    if(rear == -1){
+    if (rear == -1)
+    {
         printf("\t\t|");
-        for(int i=0; i<MAX;i++)
-        printf(" |");
+        for (int i = 0; i < MAX; i++)
+            printf("  |");
         printf("\n\n");
-    }else{
+    }
+    else
+    {
         printf("\t\t|");
-        for(int i =0;i<= front; i++)
-        printf("%c |", arr[i]);
+        for (int i = 0; i <= rear; i++) 
+            printf("%d  |", arr[i]);
         printf("\n\n");
     }
 }
-
-void main(){
-    char item;
+void main()
+{
+    int item;
     int ch;
-    // clrscr();
-    do{
-        printf("\n\t\tPress 1 for insert item ino Queue");
+    
+    do
+    {
+        printf("\n\t\tPress 1 for insert item into Queue");
         printf("\n\t\tPress 2 for Delete item from Queue");
-        printf("\n\t\tPress 3 for Display Queue");
-        printf("\n\t\tPress 4 for Exit");
-        printf("\n\t\tEnter your choice: ");
+        printf("\n\t\tPress 3 for Display Data of Queue");
+        printf("\n\t\tPress 4 for EXIT");
+        printf("\n\t\t Enter Your Choice : ");
         scanf("%d", &ch);
 
-        switch(ch){
-            case 1:
+        switch (ch)
+        {
+        case 1:
             printf("\nEnter item to insert : ");
-            scanf("%c",&item);
+            scanf(" %d", &item); 
             addqueue(item);
             break;
-
-            case 2:
-            item = dequeue();
-            printf("\nitem %c is Deleted\n",item);
+        case 2:
+            item = dequeue(); 
+            printf("\nitem %d is Deleted\n", item);
             break;
-
-            case 3:
+        case 3:
             display();
             break;
-
-            case 4:
-            exit(0);
-
-            default:
-            printf("Invalid Choice\n");
+        case 4:
+           exit(0);
+  break;
+        default:
+            printf("Invalid choice\n");
         }
-    }while (ch !=4);
-    getch();
+    }while(ch !=4);
+    // getch();
+
 }
+
+
+
+
+
+
+
+
+
